@@ -1,0 +1,15 @@
+target/
+!target/quarkus-app/
+.mvn/
+mvnw
+mvnw.cmd
+*.md
+.git/
+.gitignore
+Dockerfile*
+docker-compose*
+*.log
+.DS_Store
+.idea/
+.vscode/
+*.iml

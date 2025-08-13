@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<databaseChangeLog
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+        http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-latest.xsd">
+
+    <changeSet id="12" author="kamel">
+        <comment>Fix hotel_reviews average_score precision to handle scores up to 10.00</comment>
+        <sql>
+            ALTER TABLE hotel_reviews ALTER COLUMN average_score TYPE DECIMAL(4,2);
+        </sql>
+    </changeSet>
+</databaseChangeLog>

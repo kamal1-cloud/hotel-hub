@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<databaseChangeLog
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+        http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-latest.xsd">
+
+    <changeSet id="1" author="kamel">
+        <createTable tableName="hotels">
+            <column name="id" type="BIGINT" autoIncrement="true">
+                <constraints primaryKey="true" nullable="false"/>
+            </column>
+            <column name="cupid_id" type="BIGINT">
+                <constraints nullable="false" unique="true"/>
+            </column>
+            <column name="name" type="VARCHAR(255)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="description" type="TEXT"/>
+            <column name="markdown_description" type="TEXT"/>
+            <column name="important_info" type="TEXT"/>
+            
+            <!-- Address fields -->
+            <column name="address" type="VARCHAR(255)"/>
+            <column name="city" type="VARCHAR(100)"/>
+            <column name="state" type="VARCHAR(100)"/>
+            <column name="country_code" type="VARCHAR(2)"/>
+            <column name="postal_code" type="VARCHAR(20)"/>
+            
+            <!-- Contact information -->
+            <column name="phone" type="VARCHAR(50)"/>
+            <column name="fax" type="VARCHAR(50)"/>
+            <column name="email" type="VARCHAR(100)"/>
+            
+            <!-- Hotel details -->
+            <column name="stars" type="INTEGER"/>
+            <column name="rating" type="DECIMAL(3,2)"/>
+            <column name="review_count" type="INTEGER"/>
+            <column name="hotel_type" type="VARCHAR(100)"/>
+            <column name="hotel_type_id" type="INTEGER"/>
+            <column name="chain" type="VARCHAR(100)"/>
+            <column name="chain_id" type="INTEGER"/>
+            
+            <!-- Geolocation -->
+            <column name="latitude" type="DECIMAL(10,7)"/>
+            <column name="longitude" type="DECIMAL(10,7)"/>
+            <column name="airport_code" type="VARCHAR(10)"/>
+            
+            <!-- Images -->
+            <column name="main_image_url" type="VARCHAR(500)"/>
+            <column name="main_image_thumbnail" type="VARCHAR(500)"/>
+            
+            <!-- Check-in/out information -->
+            <column name="checkin_start" type="VARCHAR(20)"/>
+            <column name="checkin_end" type="VARCHAR(20)"/>
+            <column name="checkout_time" type="VARCHAR(20)"/>
+            <column name="special_instructions" type="TEXT"/>
+            <column name="parking" type="VARCHAR(50)"/>
+            <column name="group_room_min" type="INTEGER"/>
+            
+            <!-- Policy flags -->
+            <column name="child_allowed" type="BOOLEAN"/>
+            <column name="pets_allowed" type="BOOLEAN"/>
+            
+            <!-- Timestamps -->
+            <column name="created_at" type="TIMESTAMP"/>
+            <column name="updated_at" type="TIMESTAMP"/>
+            <column name="synced_at" type="TIMESTAMP"/>
+        </createTable>
+    </changeSet>
+
+</databaseChangeLog>

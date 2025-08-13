@@ -1,0 +1,19 @@
+<?xml version="1.1" encoding="UTF-8" standalone="no"?>
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+                   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                   xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+                   http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-latest.xsd">
+
+    <include file="db/changelog/001_create_hotels_table.xml"/>
+    <include file="/db/changelog/002_create_hotel_photos_table.xml"/>
+    <include file="/db/changelog/003_create_hotel_facilities_table.xml"/>
+    <include file="/db/changelog/004_create_hotel_policies_table.xml"/>
+    <include file="/db/changelog/005_create_hotel_rooms_table.xml"/>
+    <include file="/db/changelog/006_create_hotel_reviews_table.xml"/>
+    <include file="/db/changelog/007_create_hotel_translations_table.xml"/>
+    <include file="/db/changelog/008_create_hotel_room_bed_types_table.xml"/>
+    <include file="/db/changelog/009_create_hotel_room_amenities_table.xml"/>
+    <include file="/db/changelog/011_create_hotel_room_views_table.xml"/>
+    <include file="/db/changelog/010_create_hotel_room_photos_table.xml"/>
+    <include file="/db/changelog/012_fix_review_score_precision.xml"/>
+</databaseChangeLog>

@@ -1,0 +1,33 @@
+
+### Hotel Hub API - System & Health Endpoints
+### Base URL: http://localhost:8080
+
+### Application Health Check
+GET http://localhost:8080/q/health
+
+###
+
+### Application Readiness Check
+GET http://localhost:8080/q/health/ready
+
+###
+
+### Application Liveness Check
+GET http://localhost:8080/q/health/live
+
+###
+
+### Application Metrics
+GET http://localhost:8080/q/metrics
+
+###
+
+### OpenAPI Specification (JSON)
+GET http://localhost:8080/q/openapi
+
+###
+
+### OpenAPI Specification (YAML)
+GET http://localhost:8080/q/openapi?format=yaml
+
+###

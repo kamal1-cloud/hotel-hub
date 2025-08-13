@@ -1,0 +1,57 @@
+### Hotel Hub API - Hotel Management Endpoints
+### Base URL: http://localhost:8080
+
+### Get all hotels (basic)
+GET http://localhost:8080/api/v1/hotels
+
+###
+
+### Get all hotels with pagination
+GET http://localhost:8080/api/v1/hotels?page=0&size=10
+
+###
+
+### Get hotels with city filter
+GET http://localhost:8080/api/v1/hotels?city=Paris
+
+###
+
+### Get hotels with country filter  
+GET http://localhost:8080/api/v1/hotels?country=FR
+
+###
+
+### Get hotels with star rating filter
+GET http://localhost:8080/api/v1/hotels?minStars=3&maxStars=5
+
+###
+
+### Get hotels with rating filter
+GET http://localhost:8080/api/v1/hotels?minRating=7.0&maxRating=9.5
+
+###
+
+### Get hotels with multiple filters
+GET http://localhost:8080/api/v1/hotels?city=Paris&country=FR&minStars=4&minRating=8.0&page=0&size=5
+
+###
+
+### Search hotels by query
+GET http://localhost:8080/api/v1/hotels/search?q=luxury
+
+###
+
+### Search hotels by location
+GET http://localhost:8080/api/v1/hotels/search?q=London
+
+###
+
+### Search hotels with pagination
+GET http://localhost:8080/api/v1/hotels/search?q=hotel&page=0&size=5
+
+###
+
+### Get hotel statistics
+GET http://localhost:8080/api/v1/hotels/stats
+
+###

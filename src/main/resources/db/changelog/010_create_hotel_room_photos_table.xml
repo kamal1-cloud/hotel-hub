@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<databaseChangeLog
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+        http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-latest.xsd">
+
+    <changeSet id="10" author="kamel">
+        <createTable tableName="hotel_room_photos">
+            <column name="id" type="BIGINT" autoIncrement="true">
+                <constraints primaryKey="true" nullable="false"/>
+            </column>
+            <column name="room_id" type="BIGINT">
+                <constraints nullable="false"/>
+            </column>
+            <column name="url" type="VARCHAR(500)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="hd_url" type="VARCHAR(500)"/>
+            <column name="image_description" type="VARCHAR(255)"/>
+            <column name="image_class1" type="VARCHAR(100)"/>
+            <column name="image_class2" type="VARCHAR(100)"/>
+            <column name="main_photo" type="BOOLEAN"/>
+            <column name="score" type="DECIMAL(4,2)"/>
+            <column name="class_id" type="INTEGER"/>
+            <column name="class_order" type="INTEGER"/>
+            <column name="created_at" type="TIMESTAMP"/>
+            <column name="updated_at" type="TIMESTAMP"/>
+        </createTable>
+        
+        <addForeignKeyConstraint
+                baseTableName="hotel_room_photos"
+                baseColumnNames="room_id"
+                referencedTableName="hotel_rooms"
+                referencedColumnNames="id"
+                constraintName="fk_room_photos_room"
+                onDelete="CASCADE"/>
+    </changeSet>
+
+</databaseChangeLog>
