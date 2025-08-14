@@ -30,4 +30,4 @@ kubectl apply -k overlays/dev/
 kubectl apply -k overlays/prod/
 ```
 
-For detailed deployment instructions, see [KUBERNETES_DEPLOYMENT.md](../KUBERNETES_DEPLOYMENT.md).
+For detailed deployment instructions, see [KUBERNETES_DEPLOYMENT.md](KUBERNETES_DEPLOYMENT.md).

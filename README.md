@@ -538,7 +538,7 @@ Create environment-specific configuration files:
 
 For production Kubernetes deployments with native compilation, see our comprehensive guide:
 
-**📖 [Complete Kubernetes Deployment Guide](KUBERNETES_DEPLOYMENT.md)**
+**📖 [Complete Kubernetes Deployment Guide](k8s/KUBERNETES_DEPLOYMENT.md)**
 
 ### Quick Kubernetes Deployment
 
