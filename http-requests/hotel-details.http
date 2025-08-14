@@ -7,16 +7,6 @@ GET http://localhost:8080/api/v1/hotels/{hotelId}
 
 ###
 
-### Get hotel photos
-GET http://localhost:8080/api/v1/hotels/{hotelId}/photos
-
-###
-
-### Get hotel facilities
-GET http://localhost:8080/api/v1/hotels/{hotelId}/facilities
-
-###
-
 ### Get hotel reviews (first page)
 GET http://localhost:8080/api/v1/hotels/{hotelId}/reviews
 
@@ -44,6 +34,16 @@ GET http://localhost:8080/api/v1/hotels/{hotelId}/translations?lang=fr
 
 ### Get hotel translations (Spanish only)
 GET http://localhost:8080/api/v1/hotels/{hotelId}/translations?lang=es
+
+###
+
+### Get hotel photos
+GET http://localhost:8080/api/v1/hotels/{hotelId}/photos
+
+###
+
+### Get hotel facilities
+GET http://localhost:8080/api/v1/hotels/{hotelId}/facilities
 
 ###
 

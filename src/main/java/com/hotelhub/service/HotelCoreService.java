@@ -5,7 +5,9 @@ import com.hotelhub.dto.HotelRoomDto;
 import com.hotelhub.entity.Hotel;
 import com.hotelhub.mapper.HotelMapper;
 import com.hotelhub.repository.HotelRepository;
+import com.hotelhub.repository.HotelRoomRepository;
 import io.quarkus.cache.CacheInvalidate;
+import io.quarkus.cache.CacheInvalidateAll;
 import io.quarkus.cache.CacheKey;
 import io.quarkus.cache.CacheResult;
 import jakarta.enterprise.context.ApplicationScoped;
@@ -27,7 +29,13 @@ public class HotelCoreService {
     HotelRepository hotelRepository;
 
     @Inject
+    HotelRoomRepository hotelRoomRepository;
+
+    @Inject
     HotelMapper hotelMapper;
+
+    @Inject
+    HotelRetrievalService hotelRetrievalService;
 
     /**
      * Create a new hotel from DTO
@@ -62,7 +70,7 @@ public class HotelCoreService {
      */
     @CacheResult(cacheName = "hotel-by-id")
     public Optional<HotelDto> getHotelById(@CacheKey Long id) {
-        Hotel hotel = hotelRepository.findByIdWithRelations(id);
+        Hotel hotel = hotelRetrievalService.findByIdWithRelations(id);
         return hotel != null ? Optional.of(hotelMapper.toDto(hotel)) : Optional.empty();
     }
 
@@ -75,7 +83,7 @@ public class HotelCoreService {
         return hotelRepository.findByIdOptional(id)
                 .map(hotel -> {
                     hotelMapper.updateEntityFromDto(hotelDto, hotel);
-                    hotelRepository.persist(hotel);
+                    hotelRepository.flush();
                     return hotelMapper.toDto(hotel);
                 });
     }
@@ -89,6 +97,12 @@ public class HotelCoreService {
         return hotelRepository.deleteById(id);
     }
 
+    @Transactional
+    @CacheInvalidateAll(cacheName = "hotel-by-id")
+    public void deleteAllHotels() {
+        hotelRepository.deleteAll();
+    }
+
     /**
      * Find hotel by Cupid ID
      */
@@ -100,6 +114,11 @@ public class HotelCoreService {
      * Get hotel rooms by hotel ID
      */
     public List<HotelRoomDto> getHotelRooms(Long hotelId) {
-        return hotelRepository.getHotelRooms(hotelId);
+        // Validate hotel exists first
+        var hotel = hotelRepository.findById(hotelId);
+        if (hotel == null) {
+            return List.of();
+        }
+        return hotelRoomRepository.getHotelRooms(hotelId);
     }
 }
