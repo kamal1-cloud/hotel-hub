@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Diagram>
+  <ID>DATABASE</ID>
+  <OriginalElement>1d200614-7857-42ee-8c05-05eb4c577adb.TABLE:hotel_db.public.databasechangelog</OriginalElement>
+  <nodes>
+    <node x="-115.5" y="-464.0">1d200614-7857-42ee-8c05-05eb4c577adb.TABLE:hotel_db.public.hotels</node>
+    <node x="634.5" y="644.0">1d200614-7857-42ee-8c05-05eb4c577adb.TABLE:hotel_db.public.hotel_translations</node>
+    <node x="-121.0" y="1796.0">1d200614-7857-42ee-8c05-05eb4c577adb.TABLE:hotel_db.public.hotel_room_bed_types</node>
+    <node x="126.5" y="1068.0">1d200614-7857-42ee-8c05-05eb4c577adb.TABLE:hotel_db.public.hotel_facilities</node>
+    <node x="417.5" y="1424.0">1d200614-7857-42ee-8c05-05eb4c577adb.TABLE:hotel_db.public.hotel_room_photos</node>
+    <node x="-127.5" y="984.0">1d200614-7857-42ee-8c05-05eb4c577adb.TABLE:hotel_db.public.hotel_rooms</node>
+    <node x="38.5" y="1508.0">1d200614-7857-42ee-8c05-05eb4c577adb.TABLE:hotel_db.public.hotel_room_views</node>
+    <node x="162.0" y="1796.0">1d200614-7857-42ee-8c05-05eb4c577adb.TABLE:hotel_db.public.hotel_room_amenities</node>
+    <node x="244.5" y="560.0">1d200614-7857-42ee-8c05-05eb4c577adb.TABLE:hotel_db.public.hotel_reviews</node>
+    <node x="171.0" y="-187.5">1d200614-7857-42ee-8c05-05eb4c577adb.TABLE:hotel_db.public.databasechangelog</node>
+    <node x="-7.5" y="620.0">1d200614-7857-42ee-8c05-05eb4c577adb.TABLE:hotel_db.public.hotel_policies</node>
+    <node x="553.0" y="1832.0">1d200614-7857-42ee-8c05-05eb4c577adb.TABLE:hotel_db.public.databasechangeloglock</node>
+    <node x="497.5" y="984.0">1d200614-7857-42ee-8c05-05eb4c577adb.TABLE:hotel_db.public.hotel_photos</node>
+  </nodes>
+  <notes />
+  <edges>
+    <edge source="1d200614-7857-42ee-8c05-05eb4c577adb.TABLE:hotel_db.public.hotel_room_views" target="1d200614-7857-42ee-8c05-05eb4c577adb.TABLE:hotel_db.public.hotel_rooms" relationship="REFERENCES">
+      <point x="0.0" y="-92.0" />
+      <point x="132.0" y="1400.0" />
+      <point x="-8.0" y="1400.0" />
+      <point x="-8.0" y="1360.0" />
+      <point x="-28.0" y="1360.0" />
+      <point x="0.0" y="176.0" />
+    </edge>
+    <edge source="1d200614-7857-42ee-8c05-05eb4c577adb.TABLE:hotel_db.public.hotel_policies" target="1d200614-7857-42ee-8c05-05eb4c577adb.TABLE:hotel_db.public.hotels" relationship="REFERENCES">
+      <point x="0.0" y="-140.0" />
+      <point x="92.0" y="540.0" />
+      <point x="12.0" y="540.0" />
+      <point x="0.0" y="464.0" />
+    </edge>
+    <edge source="1d200614-7857-42ee-8c05-05eb4c577adb.TABLE:hotel_db.public.hotel_room_amenities" target="1d200614-7857-42ee-8c05-05eb4c577adb.TABLE:hotel_db.public.hotel_rooms" relationship="REFERENCES">
+      <point x="0.0" y="-104.0" />
+      <point x="272.0" y="1400.0" />
+      <point x="-8.0" y="1400.0" />
+      <point x="-8.0" y="1360.0" />
+      <point x="-28.0" y="1360.0" />
+      <point x="0.0" y="176.0" />
+    </edge>
+    <edge source="1d200614-7857-42ee-8c05-05eb4c577adb.TABLE:hotel_db.public.hotel_translations" target="1d200614-7857-42ee-8c05-05eb4c577adb.TABLE:hotel_db.public.hotels" relationship="REFERENCES">
+      <point x="0.0" y="-116.0" />
+      <point x="752.0" y="540.0" />
+      <point x="12.0" y="540.0" />
+      <point x="0.0" y="464.0" />
+    </edge>
+    <edge source="1d200614-7857-42ee-8c05-05eb4c577adb.TABLE:hotel_db.public.hotel_facilities" target="1d200614-7857-42ee-8c05-05eb4c577adb.TABLE:hotel_db.public.hotels" relationship="REFERENCES">
+      <point x="0.0" y="-92.0" />
+      <point x="212.0" y="540.0" />
+      <point x="12.0" y="540.0" />
+      <point x="0.0" y="464.0" />
+    </edge>
+    <edge source="1d200614-7857-42ee-8c05-05eb4c577adb.TABLE:hotel_db.public.hotel_room_photos" target="1d200614-7857-42ee-8c05-05eb4c577adb.TABLE:hotel_db.public.hotel_rooms" relationship="REFERENCES">
+      <point x="0.0" y="-176.0" />
+      <point x="532.0" y="1400.0" />
+      <point x="-8.0" y="1400.0" />
+      <point x="-8.0" y="1360.0" />
+      <point x="-28.0" y="1360.0" />
+      <point x="0.0" y="176.0" />
+    </edge>
+    <edge source="1d200614-7857-42ee-8c05-05eb4c577adb.TABLE:hotel_db.public.hotel_photos" target="1d200614-7857-42ee-8c05-05eb4c577adb.TABLE:hotel_db.public.hotels" relationship="REFERENCES">
+      <point x="0.0" y="-176.0" />
+      <point x="612.0" y="540.0" />
+      <point x="12.0" y="540.0" />
+      <point x="0.0" y="464.0" />
+    </edge>
+    <edge source="1d200614-7857-42ee-8c05-05eb4c577adb.TABLE:hotel_db.public.hotel_reviews" target="1d200614-7857-42ee-8c05-05eb4c577adb.TABLE:hotel_db.public.hotels" relationship="REFERENCES">
+      <point x="0.0" y="-200.0" />
+      <point x="352.0" y="540.0" />
+      <point x="12.0" y="540.0" />
+      <point x="0.0" y="464.0" />
+    </edge>
+    <edge source="1d200614-7857-42ee-8c05-05eb4c577adb.TABLE:hotel_db.public.hotel_rooms" target="1d200614-7857-42ee-8c05-05eb4c577adb.TABLE:hotel_db.public.hotels" relationship="REFERENCES">
+      <point x="0.0" y="-176.0" />
+      <point x="-28.0" y="540.0" />
+      <point x="12.0" y="540.0" />
+      <point x="0.0" y="464.0" />
+    </edge>
+    <edge source="1d200614-7857-42ee-8c05-05eb4c577adb.TABLE:hotel_db.public.hotel_room_bed_types" target="1d200614-7857-42ee-8c05-05eb4c577adb.TABLE:hotel_db.public.hotel_rooms" relationship="REFERENCES">
+      <point x="0.0" y="-104.0" />
+      <point x="-8.0" y="1360.0" />
+      <point x="-28.0" y="1360.0" />
+      <point x="0.0" y="176.0" />
+    </edge>
+  </edges>
+  <settings layout="Hierarchic Compact" zoom="0.26567524115755625" showDependencies="false" x="381.0" y="780.0" />
+  <SelectedNodes />
+  <Categories>
+    <Category>Columns</Category>
+    <Category>Comments</Category>
+    <Category>Key columns</Category>
+    <Category>Virtual foreign keys</Category>
+  </Categories>
+</Diagram>
+

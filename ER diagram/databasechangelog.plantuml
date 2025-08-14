@@ -1,0 +1,197 @@
+@startuml
+
+!theme plain
+top to bottom direction
+skinparam linetype ortho
+
+class databasechangelog {
+   id: varchar(255)
+   author: varchar(255)
+   filename: varchar(255)
+   dateexecuted: timestamp
+   orderexecuted: integer
+   exectype: varchar(10)
+   md5sum: varchar(35)
+   description: varchar(255)
+   comments: varchar(255)
+   tag: varchar(255)
+   liquibase: varchar(20)
+   contexts: varchar(255)
+   labels: varchar(255)
+   deployment_id: varchar(10)
+}
+class databasechangeloglock {
+   locked: boolean
+   lockgranted: timestamp
+   lockedby: varchar(255)
+   id: integer
+}
+class hotel_facilities {
+   hotel_id: bigint
+   facility_id: integer
+   name: varchar(255)
+   created_at: timestamp
+   updated_at: timestamp
+   id: bigint
+}
+class hotel_photos {
+   hotel_id: bigint
+   url: varchar(500)
+   hd_url: varchar(500)
+   image_description: varchar(255)
+   image_class1: varchar(100)
+   image_class2: varchar(100)
+   main_photo: boolean
+   score: numeric(4,2)
+   class_id: integer
+   class_order: integer
+   created_at: timestamp
+   updated_at: timestamp
+   id: bigint
+}
+class hotel_policies {
+   hotel_id: bigint
+   policy_type: varchar(100)
+   name: varchar(255)
+   description: text
+   child_allowed: varchar(255)
+   pets_allowed: varchar(255)
+   parking: varchar(255)
+   created_at: timestamp
+   updated_at: timestamp
+   id: bigint
+}
+class hotel_reviews {
+   cupid_review_id: varchar(255)
+   hotel_id: bigint
+   average_score: numeric(4,2)
+   country: varchar(100)
+   type: varchar(100)
+   name: varchar(255)
+   date: varchar(50)
+   headline: varchar(255)
+   language: varchar(10)
+   pros: text
+   cons: text
+   source: varchar(100)
+   created_at: timestamp
+   updated_at: timestamp
+   id: bigint
+}
+class hotel_room_amenities {
+   room_id: bigint
+   amenity_id: integer
+   name: varchar(255)
+   sort_order: integer
+   created_at: timestamp
+   updated_at: timestamp
+   id: bigint
+}
+class hotel_room_bed_types {
+   room_id: bigint
+   quantity: integer
+   bed_type: varchar(100)
+   bed_size: varchar(50)
+   created_at: timestamp
+   updated_at: timestamp
+   id: bigint
+}
+class hotel_room_photos {
+   room_id: bigint
+   url: varchar(500)
+   hd_url: varchar(500)
+   image_description: varchar(255)
+   image_class1: varchar(100)
+   image_class2: varchar(100)
+   main_photo: boolean
+   score: numeric(4,2)
+   class_id: integer
+   class_order: integer
+   created_at: timestamp
+   updated_at: timestamp
+   id: bigint
+}
+class hotel_room_views {
+   room_id: bigint
+   view_id: integer
+   view: varchar(255)
+   created_at: timestamp
+   updated_at: timestamp
+   id: bigint
+}
+class hotel_rooms {
+   cupid_room_id: bigint
+   hotel_id: bigint
+   room_name: varchar(255)
+   description: text
+   room_size_square: integer
+   room_size_unit: varchar(10)
+   max_adults: integer
+   max_children: integer
+   max_occupancy: integer
+   bed_relation: varchar(50)
+   created_at: timestamp
+   updated_at: timestamp
+   id: bigint
+}
+class hotel_translations {
+   hotel_id: bigint
+   language: varchar(10)
+   translated_name: varchar(255)
+   translated_description: text
+   translated_address: varchar(255)
+   created_at: timestamp
+   updated_at: timestamp
+   id: bigint
+}
+class hotels {
+   cupid_id: bigint
+   name: varchar(255)
+   description: text
+   markdown_description: text
+   important_info: text
+   address: varchar(255)
+   city: varchar(100)
+   state: varchar(100)
+   country_code: varchar(2)
+   postal_code: varchar(20)
+   phone: varchar(50)
+   fax: varchar(50)
+   email: varchar(100)
+   stars: integer
+   rating: numeric(3,2)
+   review_count: integer
+   hotel_type: varchar(100)
+   hotel_type_id: integer
+   chain: varchar(100)
+   chain_id: integer
+   latitude: numeric(10,7)
+   longitude: numeric(10,7)
+   airport_code: varchar(10)
+   main_image_url: varchar(500)
+   main_image_thumbnail: varchar(500)
+   checkin_start: varchar(20)
+   checkin_end: varchar(20)
+   checkout_time: varchar(20)
+   special_instructions: text
+   parking: varchar(50)
+   group_room_min: integer
+   child_allowed: boolean
+   pets_allowed: boolean
+   created_at: timestamp
+   updated_at: timestamp
+   synced_at: timestamp
+   id: bigint
+}
+
+hotel_facilities       -[#595959,plain]-^  hotels                : "hotel_id:id"
+hotel_photos           -[#595959,plain]-^  hotels                : "hotel_id:id"
+hotel_policies         -[#595959,plain]-^  hotels                : "hotel_id:id"
+hotel_reviews          -[#595959,plain]-^  hotels                : "hotel_id:id"
+hotel_room_amenities   -[#595959,plain]-^  hotel_rooms           : "room_id:id"
+hotel_room_bed_types   -[#595959,plain]-^  hotel_rooms           : "room_id:id"
+hotel_room_photos      -[#595959,plain]-^  hotel_rooms           : "room_id:id"
+hotel_room_views       -[#595959,plain]-^  hotel_rooms           : "room_id:id"
+hotel_rooms            -[#595959,plain]-^  hotels                : "hotel_id:id"
+hotel_translations     -[#595959,plain]-^  hotels                : "hotel_id:id"
+@enduml

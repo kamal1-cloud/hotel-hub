@@ -12,11 +12,5 @@ release.properties
 *.iml
 *.iws
 
-# Local environment
-.env
-
 # Plugin directory
 /.quarkus/cli/plugins/
-
-# tests
-src/test

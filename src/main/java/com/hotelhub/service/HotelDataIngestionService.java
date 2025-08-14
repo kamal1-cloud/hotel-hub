@@ -4,11 +4,16 @@ import com.hotelhub.client.dto.CupidPropertyDto;
 import com.hotelhub.client.dto.CupidReviewDto;
 import com.hotelhub.entity.Hotel;
 import com.hotelhub.mapper.HotelMapper;
+import com.hotelhub.repository.HotelFacilityRepository;
+import com.hotelhub.repository.HotelPhotoRepository;
+import com.hotelhub.repository.HotelPolicyRepository;
 import com.hotelhub.repository.HotelRepository;
+import com.hotelhub.repository.HotelReviewRepository;
+import com.hotelhub.repository.HotelRoomRepository;
+import com.hotelhub.repository.HotelTranslationRepository;
 import io.quarkus.cache.CacheInvalidate;
 import jakarta.enterprise.context.ApplicationScoped;
 import jakarta.inject.Inject;
-import jakarta.persistence.EntityManager;
 import jakarta.transaction.Transactional;
 
 import java.util.List;
@@ -24,10 +29,25 @@ public class HotelDataIngestionService {
     HotelRepository hotelRepository;
 
     @Inject
-    HotelMapper hotelMapper;
-    
+    HotelPhotoRepository hotelPhotoRepository;
+
     @Inject
-    EntityManager entityManager;
+    HotelFacilityRepository hotelFacilityRepository;
+
+    @Inject
+    HotelPolicyRepository hotelPolicyRepository;
+
+    @Inject
+    HotelRoomRepository hotelRoomRepository;
+
+    @Inject
+    HotelReviewRepository hotelReviewRepository;
+
+    @Inject
+    HotelTranslationRepository hotelTranslationRepository;
+
+    @Inject
+    HotelMapper hotelMapper;
 
     /**
      * Create hotel from Cupid API data
@@ -55,10 +75,10 @@ public class HotelDataIngestionService {
      */
     @CacheInvalidate(cacheName = "hotel-by-id")
     @Transactional
-    public void updateHotelCompleteData(Hotel hotel, CupidPropertyDto propertyData, 
-                                       List<CupidReviewDto> reviews,
-                                       CupidPropertyDto frenchData, 
-                                       CupidPropertyDto spanishData) {
+    public void updateHotelCompleteData(Hotel hotel, CupidPropertyDto propertyData,
+                                        List<CupidReviewDto> reviews,
+                                        CupidPropertyDto frenchData,
+                                        CupidPropertyDto spanishData) {
 
         updateBasicHotelData(hotel, propertyData);
         Long hotelId = hotel.id;
@@ -94,36 +114,36 @@ public class HotelDataIngestionService {
 
     private void updatePhotos(Long hotelId, List<CupidPropertyDto.Photo> photos) {
         Hotel hotel = hotelRepository.findById(hotelId);
-        hotelRepository.updateHotelPhotos(hotel, photos);
+        hotelPhotoRepository.updateHotelPhotos(hotel, photos);
     }
 
 
     private void updateFacilities(Long hotelId, List<CupidPropertyDto.Facility> facilities) {
         Hotel hotel = hotelRepository.findById(hotelId);
-        hotelRepository.updateHotelFacilities(hotel, facilities);
+        hotelFacilityRepository.updateHotelFacilities(hotel, facilities);
     }
 
 
     private void updatePolicies(Long hotelId, List<CupidPropertyDto.Policy> policies) {
         Hotel hotel = hotelRepository.findById(hotelId);
-        hotelRepository.updateHotelPolicies(hotel, policies);
+        hotelPolicyRepository.updateHotelPolicies(hotel, policies);
     }
 
 
     private void updateRooms(Long hotelId, List<CupidPropertyDto.Room> rooms) {
         Hotel hotel = hotelRepository.findById(hotelId);
-        hotelRepository.updateHotelRooms(hotel, rooms);
+        hotelRoomRepository.updateHotelRooms(hotel, rooms);
     }
 
 
     private void updateReviews(Long hotelId, List<CupidReviewDto> reviews) {
         Hotel hotel = hotelRepository.findById(hotelId);
-        hotelRepository.updateHotelReviews(hotel, reviews);
+        hotelReviewRepository.updateHotelReviews(hotel, reviews);
     }
 
 
     private void updateTranslations(Long hotelId, CupidPropertyDto frenchData, CupidPropertyDto spanishData) {
         Hotel hotel = hotelRepository.findById(hotelId);
-        hotelRepository.updateHotelTranslations(hotel, frenchData, spanishData);
+        hotelTranslationRepository.updateHotelTranslations(hotel, frenchData, spanishData);
     }
 }
