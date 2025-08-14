@@ -83,8 +83,7 @@ docker compose logs -f app
 ### 4. Verify Installation
 
 - **Health Check**: http://localhost:8080/q/health
-- **API Documentation**: http://localhost:8080/q/openapi-ui/
-- **Dev UI**: http://localhost:8080/q/dev/ (dev mode only)
+- **API Documentation**: http://localhost:8080/q/openapi
 
 ## 💻 Development Setup
 

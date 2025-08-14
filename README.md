@@ -6,7 +6,8 @@
 ![Docker](https://img.shields.io/badge/Docker-2CA5E0?style=for-the-badge&logo=docker&logoColor=white)
 ![License](https://img.shields.io/badge/License-MIT-yellow.svg?style=for-the-badge)
 
-Hotel Hub is a comprehensive, high-performance hotel management API built with Quarkus. It provides a robust platform for ingesting, searching, and managing hotel data, including rooms, photos, facilities, and reviews.
+Hotel Hub is a comprehensive, high-performance hotel management API built with Quarkus. It provides a robust platform
+for ingesting, searching, and managing hotel data, including rooms, photos, facilities,traslation, and reviews.
 
 ## ✨ Features
 
@@ -21,29 +22,30 @@ Hotel Hub is a comprehensive, high-performance hotel management API built with Q
 
 Get the application running in just a few steps:
 
-1.  **Clone the repository:**
-    ```bash
-    git clone <your-repository-url>
-    cd hotel-hub
-    ```
+1. **Clone the repository:**
+   ```bash
+   git clone <your-repository-url>
+   cd hotel-hub
+   ```
 
-2.  **Set up your environment file:**
-    Rename `.env.example` to `.env` and add your Cupid API key:
-    ```bash
-    mv .env.example .env
-    # Now edit .env and add your key
-    ```
+2. **Set up your environment file:**
+   Rename `.env.example` to `.env` and add your Cupid API key:
+   ```bash
+   mv .env.example .env
+   # Now edit .env and add your key
+   ```
 
-3.  **Run with Docker Compose:**
-    ```bash
-    docker compose up -d --build
-    ```
+3. **Run with Docker Compose:**
+   ```bash
+   docker compose up -d --build
+   ```
 
 The application will be available at `http://localhost:8080`.
 
 ## 🗄️ Database Schema
 
-The database schema is designed to be comprehensive and relational. Here is a visual representation of the tables and their relationships:
+The database schema is designed to be comprehensive and relational. Here is a visual representation of the tables and
+their relationships:
 
 ![ER Diagram](ER%20diagram/databasechangelog.png)
 
@@ -51,7 +53,8 @@ For more details, see the [full ER diagram documentation](ER%20diagram/hotel-er-
 
 ## 📚 API Documentation
 
-The API is documented using the OpenAPI standard. Once the application is running, you can access the interactive API documentation at:
+The API is documented using the OpenAPI standard. Once the application is running, you can access the interactive API
+documentation at:
 
 - **OpenAPI UI**: `http://localhost:8080/q/openapi-ui/`
 
@@ -72,4 +75,5 @@ The API is documented using the OpenAPI standard. Once the application is runnin
 
 ## 🔧 Development
 
-For detailed instructions on setting up a development environment, running tests, and deploying to production, please refer to the original [SETUP_GUIDE.md](SETUP_GUIDE.md).
+For detailed instructions on setting up a development environment, running tests, and deploying to production, please
+refer to the original [SETUP_GUIDE.md](SETUP_GUIDE.md).
